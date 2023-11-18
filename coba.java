@@ -13,7 +13,16 @@ public class coba {
 
         /// tambah transaksi ///
         String nama, next, tanggal;
-        int a, pilihan, jumlah, jml = 0, jamkeberangkatan; 
+        String[][] penumpang = new String[10][4];
+        int baris, kolom;
+        int[] harga = {20000, 50000};
+        int[][] nominalHarga = {
+            {36000, 46000},//sby
+            {200000, 300000}//jkt
+        };
+        int a, pilihan, jumlah, jml = 0, jamkeberangkatan;
+        double bayar, totalharga, kembalian, waktuBerangkat;
+        char jawab; 
 
          //login
         do {
@@ -123,6 +132,47 @@ public class coba {
                                     System.out.print("Apakah anda ingin menambah pelanggan lain (Y/T)? ");
                                     jawab = input.next().charAt(0);
                                 } while (jawab == 'y' || jawab == 'Y');
+
+                                System.out.println("\n==========================================");
+                                System.out.println("|          --- Pembayaran ---            |");
+                                System.out.println("==========================================");
+                                System.out.println("Total Pelanggan adalah : " + jml);
+                        
+                                int hargaTiket = nominalHarga[kotaTujuan][gerbongKereta - 1];
+
+                                //bersarang / nested if (untuk pembayaran)
+                                if (kotaTujuan == 1) {
+                                    if (jml > 5) {
+                                        //totalharga = (harga[pilihan] * jml) - (harga[pilihan] * jml * 0.05);
+                                        totalharga = (hargaTiket * jml) - (hargaTiket * jml * 0.05);
+                                        System.out.println("Total Harga : " + totalharga);
+                                        System.out.print("Masukkan nominal pembayaran anda : ");
+                                        bayar = input.nextDouble();
+                                        if (bayar > totalharga) {
+                                            kembalian = bayar - totalharga;
+                                            System.out.println("Kembalian anda adalah = " + kembalian);
+                                        } else if (bayar == totalharga) {
+                                            System.out.println("Uang anda pas");
+                                        }   
+                                    }
+                                } else {
+                                    totalharga = hargaTiket * jml;
+                                    System.out.println("Total Harga : " + totalharga);
+                                    System.out.print("Masukkan nominal pembayaran anda : ");
+                                    bayar = input.nextDouble();
+                                    if (bayar > totalharga) {
+                                        kembalian = bayar - totalharga;
+                                        System.out.println("Kembalian anda adalah = " + kembalian);
+                                    } else if (bayar == totalharga) {
+                                        System.out.println("Uang anda pas");
+                                    }
+                                }
+                            }while (true);
+
+                            
+                                
+        } while (true);
+            
                                 
 
     }
