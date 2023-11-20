@@ -49,7 +49,7 @@ public class coba {
                         System.out.println("|===========================================|");
                         System.out.println("|        Berhasil masuk sebagai admin       |");
                         System.out.println("|===========================================|");
-                        System.out.println("|      Silahkan pilih menu (1/2/3/4/5)      |");
+                        System.out.println("|     Silahkan pilih menu (1/2/3/4/5/6)     |");
                         System.out.println("|===========================================|");
                         System.out.println("| 1. Tambah Transaksi                       |");
                         System.out.println("| 2. Cek Ketersediaan Kursi                 |");
@@ -159,9 +159,49 @@ public class coba {
                                     System.out.println("Uang anda pas");
                                 }
                             }
+                        } else if (menu == 2) {
+                            // cek ketersediaan kursi
+
+                        } else if (menu == 3) {
+                            System.out.println("\n===========================================");
+                            System.out.println("|      --- Struk Pembelian Tiket ---      |");
+                            System.out.println("===========================================");
+                            for (int i = 0; i < penumpang.length; i++) {
+                                for (int j = 0; j < penumpang[i].length; j++) {
+                                    if (penumpang[i][j] != null) {
+                                        System.out.println("Nama                  : " + penumpang[i][j] + ", Kursi: " + (i+1) + "-" + (j+1));
+                                        if (kotaTujuan == 1){
+                                            System.out.println("Kota Tujuan           : Surabaya, KA Jayabaya");
+                                        } else {
+                                            System.out.println("Kota Tujuan           : Jakarta, KA Brawijaya");
+                                        }
+                                        if (gerbongKereta == 1){
+                                            System.out.println("Gerbong               : Gerbong Ekonomi");
+                                        } else {
+                                            System.out.println("Gerbong               : Gerbong Eksekutif");
+                                        }
+                                        System.out.println("Tanggal Keberangkatan : " + tanggal);
+                                        if (jamkeberangkatan == 1){
+                                            System.out.println("Jam keberangkatan     : 11.00 WIB");
+                                        } else {
+                                            System.out.println("Jam Keberangkatan     : 14.00 WIB");
+                                        }
+                                        //System.out.println("Total Harga: " + totalharga);
+                                    }
+                                }
+                            }
+                        } else if (menu == 4) {
+                            //laporan harian
+                        } else if (menu == 5) {
+                            //laporan bulannan
+                        } else if (menu == 7){
+                            break;
                         }
                     } while (true);
+                } else {
+                    System.out.println("Username dan password salah silahkan login kembali!");
                 }
+            //login pengguna
             } else if (levelPengguna.equalsIgnoreCase("pengguna")) {
                 System.out.println("|===========================================|");
                 System.out.println("|      Silahkan login terlebih dahulu       |");
@@ -173,9 +213,9 @@ public class coba {
                 if (username.equals("pengguna") && password.equals("pengguna123")) {
                     do {
                         System.out.println("|===========================================|");
-                        System.out.println("|        Berhasil masuk sebagai admin       |");
+                        System.out.println("|      Berhasil masuk sebagai pengguna      |");
                         System.out.println("|===========================================|");
-                        System.out.println("|      Silahkan pilih menu (1/2/3/4/5)      |");
+                        System.out.println("|       Silahkan pilih menu (1/2/3/4/)      |");
                         System.out.println("|===========================================|");
                         System.out.println("| 1. Tambah Transaksi                       |");
                         System.out.println("| 2. Cek Ketersediaan Kursi                 |");
